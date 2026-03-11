@@ -9,7 +9,7 @@ import type { Product } from "@/types"
 
 import { useAuth } from "@/context/auth-context"
 import Link from "next/link"
-import { LogIn } from "lucide-react"
+import { Check, LogIn } from "lucide-react"
 
 interface AddToCartProps {
   product: Product
@@ -17,6 +17,7 @@ interface AddToCartProps {
 
 export function AddToCart({ product }: AddToCartProps) {
   const [quantity, setQuantity] = useState(1)
+  const [isAdded, setIsAdded] = useState(false)
   const { addItem } = useCart()
   const { isAuthenticated, role } = useAuth()
   const stock = product.stock
@@ -31,6 +32,10 @@ export function AddToCart({ product }: AddToCartProps) {
 
   function handleAdd() {
     addItem(product, quantity)
+    setIsAdded(true)
+    setTimeout(() => {
+      setIsAdded(false)
+    }, 1500)
   }
 
   if (!isAuthenticated) {
@@ -90,12 +95,21 @@ export function AddToCart({ product }: AddToCartProps) {
       {/* Add to cart button */}
       <Button
         size="lg"
-        className="w-full gap-2 font-semibold"
+        className={`w-full gap-2 font-semibold transition-all duration-300 ${isAdded ? "bg-success hover:bg-success text-success-foreground scale-95" : "hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,212,255,0.3)]"}`}
         onClick={handleAdd}
-        disabled={stock === 0}
+        disabled={stock === 0 || isAdded}
       >
-        <ShoppingCart className="size-5" />
-        {stock === 0 ? "Sin stock" : "Agregar al carrito"}
+        {isAdded ? (
+          <>
+            <Check className="size-5 animate-in zoom-in" />
+            ¡Agregado!
+          </>
+        ) : (
+          <>
+            <ShoppingCart className="size-5" />
+            {stock === 0 ? "Sin stock" : "Agregar al carrito"}
+          </>
+        )}
       </Button>
     </div>
   )

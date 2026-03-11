@@ -13,7 +13,8 @@ interface ProductPageProps {
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params
-  const product = await getProductBySlug(slug)
+  const decodedSlug = decodeURIComponent(slug)
+  const product = await getProductBySlug(decodedSlug)
 
   if (!product) {
     notFound()
@@ -37,9 +38,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       {/* Product detail: 2 columns */}
       <div className="mt-6 grid gap-8 md:grid-cols-2">
-        <ProductImages images={product.images} productName={product.brand} />
+        <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
+          <ProductImages images={product.images} productName={product.brand} />
+        </div>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150 ease-out fill-mode-both">
           <ProductInfo product={product} />
           <AddToCart product={product} />
         </div>
@@ -47,13 +50,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       {/* Related products */}
       {related.length > 0 && (
-        <>
+        <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 ease-out fill-mode-both">
           <Separator className="my-10" />
           <ProductGrid
             products={related}
             title="Productos relacionados"
           />
-        </>
+        </div>
       )}
     </div>
   )

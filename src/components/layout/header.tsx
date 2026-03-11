@@ -192,10 +192,10 @@ export function Header({ categories }: HeaderProps) {
         </Sheet>
 
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center group transition-transform duration-300 hover:scale-[1.03]">
           <span className="text-xl font-bold">
-            <span className="text-[#00d4ff]">23</span>
-            <span className="text-white">Tech</span>
+            <span className="text-[#00d4ff] group-hover:brightness-125 transition-all">23</span>
+            <span className="text-white group-hover:text-gray-100 transition-colors">Tech</span>
           </span>
         </Link>
 

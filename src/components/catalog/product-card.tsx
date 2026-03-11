@@ -3,7 +3,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
+import { CardContent } from "@/components/ui/card"
+import { SpotlightCard } from "@/components/animations/spotlight-card"
 import { Badge } from "@/components/ui/badge"
 import { PriceDisplay } from "@/components/shared/price-display"
 import type { Product } from "@/types"
@@ -21,8 +22,8 @@ export function ProductCard({ product }: ProductCardProps) {
   const showImage = firstImage && !imgError
 
   return (
-    <Link href={`/producto/${product.slug}`} className="group block">
-      <Card className="relative gap-0 overflow-hidden border-border p-0 transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,212,255,0.1)]">
+    <Link href={`/producto/${product.slug}`} className="group block h-full animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out fill-mode-both">
+      <SpotlightCard className="flex h-full flex-col gap-0 p-0 transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[0_8px_30px_rgba(0,212,255,0.15)]">
         {/* Image area */}
         <div className="relative aspect-square bg-muted">
           {showImage ? (
@@ -30,7 +31,7 @@ export function ProductCard({ product }: ProductCardProps) {
               src={firstImage}
               alt={`${product.brand} ${product.model}`}
               fill
-              className="object-contain p-4"
+              className="object-contain p-4 transition-transform duration-700 ease-out group-hover:scale-110"
               onError={() => setImgError(true)}
             />
           ) : (
@@ -44,12 +45,12 @@ export function ProductCard({ product }: ProductCardProps) {
           {/* Top-left badges */}
           <div className="absolute left-2 top-2 flex flex-col gap-1.5">
             {product.isNew && (
-              <Badge variant="default" className="text-[10px] px-1.5 py-0.5">
+              <Badge variant="default" className="text-[10px] px-1.5 py-0.5 z-20 relative">
                 Nuevo
               </Badge>
             )}
             {product.stock === 0 && (
-              <Badge variant="destructive" className="text-[10px] px-1.5 py-0.5">
+              <Badge variant="destructive" className="text-[10px] px-1.5 py-0.5 z-20 relative">
                 Sin stock
               </Badge>
             )}
@@ -57,7 +58,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Card content */}
-        <CardContent className="flex flex-col gap-1.5 p-3 md:p-4">
+        <CardContent className="flex flex-col gap-1.5 p-3 md:p-4 z-20 relative">
           {/* Brand */}
           <span className="text-xs uppercase tracking-wider text-muted-foreground">
             {product.brand}
@@ -85,7 +86,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </span>
           )}
         </CardContent>
-      </Card>
+      </SpotlightCard>
     </Link>
   )
 }

@@ -38,8 +38,8 @@ export function BreadcrumbNav({ items }: BreadcrumbNavProps) {
                   </BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink asChild>
-                    <Link href={item.href ?? "/"} className="flex items-center gap-1">
-                      {isFirst && <Home className="size-3.5" />}
+                    <Link href={item.href ?? "/"} className="flex items-center gap-1 transition-all duration-200 hover:text-primary hover:scale-[1.02]">
+                      {isFirst && <Home className="size-3.5 transition-transform group-hover:scale-110" />}
                       {item.label}
                     </Link>
                   </BreadcrumbLink>

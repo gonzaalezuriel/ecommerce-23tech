@@ -44,7 +44,7 @@ export default async function Home() {
           </div>
           
           <div className="mt-10 text-center">
-            <Button size="lg" className="px-8" asChild>
+            <Button size="lg" className="px-8 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,212,255,0.3)]" asChild>
               <Link href="/catalogo">
                 Explorar Catálogo Completo
               </Link>
@@ -53,19 +53,19 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Features / Benefits Section (Optional Text) */}
+      {/* Features / Benefits Section */}
       <section className="py-8 md:py-16 bg-background">
         <div className="container mx-auto px-4 grid md:grid-cols-3 gap-4 md:gap-8 text-center">
-          <div className="p-6 rounded-lg border border-border/50 bg-surface/30">
-            <h3 className="text-xl font-semibold mb-2 text-primary">Envío a todo el país</h3>
+          <div className="group p-6 rounded-lg border border-border/50 bg-surface/30 transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_8px_30px_rgba(0,212,255,0.1)]">
+            <h3 className="text-xl font-semibold mb-2 text-primary transition-transform group-hover:scale-105">Envío a todo el país</h3>
             <p className="text-muted-foreground">Llegamos a cada rincón de Argentina con paquetería segura.</p>
           </div>
-          <div className="p-6 rounded-lg border border-border/50 bg-surface/30">
-            <h3 className="text-xl font-semibold mb-2 text-primary">Garantía Oficial</h3>
+          <div className="group p-6 rounded-lg border border-border/50 bg-surface/30 transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_8px_30px_rgba(0,212,255,0.1)]">
+            <h3 className="text-xl font-semibold mb-2 text-primary transition-transform group-hover:scale-105">Garantía Oficial</h3>
             <p className="text-muted-foreground">Todos nuestros productos cuentan con garantía directa de fabricante.</p>
           </div>
-          <div className="p-6 rounded-lg border border-border/50 bg-surface/30">
-            <h3 className="text-xl font-semibold mb-2 text-primary">Atención 24/7</h3>
+          <div className="group p-6 rounded-lg border border-border/50 bg-surface/30 transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_8px_30px_rgba(0,212,255,0.1)]">
+            <h3 className="text-xl font-semibold mb-2 text-primary transition-transform group-hover:scale-105">Atención 24/7</h3>
             <p className="text-muted-foreground">Resolvemos tus dudas en cualquier momento del día.</p>
           </div>
         </div>

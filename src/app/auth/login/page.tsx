@@ -15,6 +15,7 @@ import { useAuth } from "@/context/auth-context"
 function LoginForm() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [hasError, setHasError] = useState(false)
   const [isPending, startTransition] = useTransition()
   const { login } = useAuth()
   const router = useRouter()
@@ -24,7 +25,9 @@ function LoginForm() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!email || !password) {
+      setHasError(true)
       toast.error("Completá todos los campos")
+      setTimeout(() => setHasError(false), 500)
       return
     }
 
@@ -51,14 +54,16 @@ function LoginForm() {
           router.push(callbackUrl)
         }
       } else {
+        setHasError(true)
         toast.error("Email o contraseña incorrectos")
+        setTimeout(() => setHasError(false), 500)
       }
     })
   }
 
   return (
     <div className="flex min-h-[calc(100vh-200px)] items-center justify-center px-4 py-12">
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
         <CardHeader className="text-center">
           <div className="mx-auto mb-2 flex size-12 items-center justify-center rounded-full bg-primary/10">
             <LogIn className="size-6 text-primary" />
@@ -67,7 +72,7 @@ function LoginForm() {
           <CardDescription>Ingresá tus datos para acceder a tu cuenta</CardDescription>
         </CardHeader>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={hasError ? "animate-in slide-in-from-left-2 duration-300" : ""}>
           <CardContent className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <Label htmlFor="email">Email</Label>

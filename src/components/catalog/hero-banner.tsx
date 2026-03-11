@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { TextReveal } from "@/components/animations/text-reveal"
+import { MagneticButton } from "@/components/animations/magnetic-button"
 
 export function HeroBanner() {
   return (
@@ -27,26 +29,30 @@ export function HeroBanner() {
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-16 md:py-0 md:min-h-[400px]">
         {/* Left side: Text content */}
         <div className="z-10 flex max-w-xl flex-col gap-6">
-          <div>
+          <div className="animate-in fade-in slide-in-from-left-8 duration-700 ease-out fill-mode-both">
             <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
               Tecnolog&iacute;a de
             </p>
-            <h1 className="mt-2 text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-6xl">
-              Alto Rendimiento
-            </h1>
+            <TextReveal 
+              text="Alto Rendimiento" 
+              className="mt-2 text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-6xl"
+              delay={0.2} 
+            />
           </div>
-          <p className="max-w-md text-base text-muted-foreground md:text-lg">
+          <p className="max-w-md text-base text-muted-foreground md:text-lg animate-in fade-in slide-in-from-left-8 duration-700 delay-150 ease-out fill-mode-both">
             Encontr&aacute; los mejores productos de computaci&oacute;n al mejor precio
           </p>
-          <div>
-            <Button asChild size="lg" className="font-semibold">
-              <Link href="/catalogo">Ver productos</Link>
-            </Button>
+          <div className="animate-in fade-in slide-in-from-left-8 duration-700 delay-300 ease-out fill-mode-both w-fit">
+            <MagneticButton intensity={0.4}>
+              <Button asChild size="lg" className="font-semibold">
+                <Link href="/catalogo">Ver productos</Link>
+              </Button>
+            </MagneticButton>
           </div>
         </div>
 
         {/* Right side: Decorative glow (hidden on mobile) */}
-        <div className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 md:block">
+        <div className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 md:block animate-in fade-in zoom-in-75 duration-1000 ease-out fill-mode-both">
           <div
             className="h-[350px] w-[350px] rounded-full lg:h-[450px] lg:w-[450px]"
             style={{

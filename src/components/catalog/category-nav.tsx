@@ -37,15 +37,15 @@ export function CategoryNav({ categories, activeSlug }: CategoryNavProps) {
                   href={isActive ? "/catalogo" : `/catalogo?cat=${category.slug}`}
                   scroll={false}
                   className={cn(
-                    "group flex shrink-0 items-center gap-2.5 rounded-lg border px-4 py-3 transition-all duration-200",
+                    "group flex shrink-0 items-center gap-2.5 rounded-lg border px-4 py-3 transition-all duration-300",
                     isActive
-                      ? "border-primary bg-primary/10 text-primary shadow-[0_0_12px_rgba(0,212,255,0.1)]"
-                      : "border-border bg-surface hover:border-primary hover:text-primary hover:shadow-[0_0_12px_rgba(0,212,255,0.08)]"
+                      ? "border-primary bg-primary/10 text-primary shadow-[0_0_15px_rgba(0,212,255,0.2)]"
+                      : "border-border bg-surface hover:-translate-y-1 hover:border-primary hover:text-primary hover:shadow-[0_8px_20px_rgba(0,212,255,0.12)]"
                   )}
                 >
                   <Icon className={cn(
-                    "size-4 transition-colors",
-                    isActive ? "text-primary" : "text-muted-foreground group-hover:text-primary"
+                    "size-4 transition-all duration-300",
+                    isActive ? "text-primary" : "text-muted-foreground group-hover:scale-125 group-hover:text-primary"
                   )} />
                   <span className={cn(
                     "whitespace-nowrap text-sm font-medium transition-colors",

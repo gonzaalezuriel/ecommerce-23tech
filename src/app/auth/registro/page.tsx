@@ -25,6 +25,7 @@ export default function RegisterPage() {
 
   const { register } = useAuth()
   const router = useRouter()
+  const [hasError, setHasError] = useState(false)
   const [isPending, startTransition] = useTransition()
 
   function update(field: string, value: string) {
@@ -35,11 +36,15 @@ export default function RegisterPage() {
     e.preventDefault()
 
     if (!form.name || !form.lastname || !form.document || !form.email || !form.password) {
+      setHasError(true)
       toast.error("Completá todos los campos obligatorios")
+      setTimeout(() => setHasError(false), 500)
       return
     }
     if (form.password !== form.confirmPassword) {
+      setHasError(true)
       toast.error("Las contraseñas no coinciden")
+      setTimeout(() => setHasError(false), 500)
       return
     }
 
@@ -48,14 +53,18 @@ export default function RegisterPage() {
       if (success) {
         toast.success("¡Cuenta creada! Iniciando sesión...")
         router.push("/")
+      } else {
+        // En caso de error remoto (ej: email en uso), lo indicamos.
+        setHasError(true)
+        setTimeout(() => setHasError(false), 500)
       }
-      // Si falla, auth-context ya muestra el toast con el error correcto del servidor
+      // auth-context ya muestra el toast con el error detallado del servidor
     })
   }
 
   return (
     <div className="flex min-h-[calc(100vh-200px)] items-center justify-center px-4 py-12">
-      <Card className="w-full max-w-lg">
+      <Card className="w-full max-w-lg animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
         <CardHeader className="text-center">
           <div className="mx-auto mb-2 flex size-12 items-center justify-center rounded-full bg-primary/10">
             <UserPlus className="size-6 text-primary" />
@@ -64,7 +73,7 @@ export default function RegisterPage() {
           <CardDescription>Completá tus datos para registrarte en 23Tech</CardDescription>
         </CardHeader>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={hasError ? "animate-shake" : ""}>
           <CardContent className="flex flex-col gap-4">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="flex flex-col gap-2">

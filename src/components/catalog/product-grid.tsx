@@ -37,9 +37,9 @@ export function ProductGrid({ products, title, resultCount, view = "grid" }: Pro
       {products.length > 0 ? (
         view === "list" ? (
           <div className="flex flex-col gap-3">
-            {products.map((product) => (
-              <Link key={product.id} href={`/producto/${product.slug}`} className="group block">
-                <div className="flex gap-4 rounded-lg border border-border bg-card p-4 transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(0,212,255,0.1)]">
+            {products.map((product, index) => (
+              <Link key={product.id} href={`/producto/${product.slug}`} className="group block animate-in fade-in slide-in-from-right-8 duration-500 ease-out fill-mode-both" style={{ animationDelay: `${index * 50}ms` }}>
+                <div className="flex gap-4 rounded-lg border border-border bg-card p-4 transition-all duration-300 hover:-translate-x-1 hover:border-primary/50 hover:shadow-[10px_0_30px_rgba(0,212,255,0.1)]">
                   <div className="relative flex size-20 shrink-0 items-center justify-center overflow-hidden rounded-md bg-muted">
                     {/* Letra de fallback (siempre debajo) */}
                     <span className="text-2xl font-bold text-muted-foreground/30">
