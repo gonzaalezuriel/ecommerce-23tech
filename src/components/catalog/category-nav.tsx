@@ -14,6 +14,8 @@ const categoryIcons: Record<string, LucideIcon> = {
   "mouse": Mouse,
   "componentes": Cpu,
   "accesorios": Headphones,
+  "auriculares": Headphones,
+  "audio": Headphones,
 }
 
 interface CategoryNavProps {

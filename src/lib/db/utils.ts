@@ -29,8 +29,8 @@ export function toUIProduct(
     category: product.category ? toUICategory(product.category) : undefined,
     createdAt: product.createdAt.toISOString(),   // Date → string ISO
     updatedAt: product.updatedAt.toISOString(),   // Date → string ISO
-    // isNew = true si el producto fue creado hace menos de 30 días (para mostrar badge "Nuevo")
-    isNew: product.createdAt > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000),
+    // isNew = true si el producto fue creado hace menos de 15 días (para mostrar badge "Nuevo")
+    isNew: product.createdAt > new Date(Date.now() - 15 * 24 * 60 * 60 * 1000),
   }
 }
 

@@ -25,7 +25,7 @@ export function ProductCard({ product }: ProductCardProps) {
     <Link href={`/producto/${product.slug}`} className="group block h-full animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out fill-mode-both">
       <SpotlightCard className="flex h-full flex-col gap-0 p-0 transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-[0_8px_30px_rgba(0,212,255,0.15)]">
         {/* Image area */}
-        <div className="relative aspect-square bg-muted">
+        <div className="relative aspect-square bg-white overflow-hidden rounded-t-xl">
           {showImage ? (
             <Image
               src={firstImage}

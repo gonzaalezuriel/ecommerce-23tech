@@ -24,7 +24,7 @@ export function ProductImages({ images, productName }: ProductImagesProps) {
   return (
     <div className="flex flex-col gap-3">
       {/* Main image */}
-      <div className="relative aspect-square overflow-hidden rounded-lg border border-border bg-muted">
+      <div className="relative aspect-square overflow-hidden rounded-lg border border-border bg-white">
         {mainFailed ? (
           <div className="flex h-full w-full items-center justify-center">
             <span className="text-6xl font-bold text-muted-foreground/20">
@@ -51,7 +51,7 @@ export function ProductImages({ images, productName }: ProductImagesProps) {
             <button
               key={url}
               onClick={() => setSelectedIndex(index)}
-              className={`relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-md border bg-muted transition-all duration-300 ${
+              className={`relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-md border bg-white transition-all duration-300 ${
                 selectedIndex === index
                   ? "border-primary ring-2 ring-primary ring-offset-2 ring-offset-background scale-105 shadow-[0_0_15px_rgba(0,212,255,0.25)]"
                   : "border-border hover:border-primary/50 hover:scale-105"
