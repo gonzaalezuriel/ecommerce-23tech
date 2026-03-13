@@ -4,24 +4,6 @@
 
 ---
 
-## 📋 Tabla de Contenidos
-
-- [Stack Tecnológico](#-stack-tecnológico)
-- [Requisitos Previos](#-requisitos-previos)
-- [Instalación y Configuración](#-instalación-y-configuración)
-- [Scripts Disponibles](#-scripts-disponibles)
-- [Variables de Entorno](#-variables-de-entorno)
-- [Credenciales de Prueba](#-credenciales-de-prueba)
-- [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Modelo de Datos](#-modelo-de-datos)
-- [Funcionalidades](#-funcionalidades)
-- [Requisitos No Funcionales](#-requisitos-no-funcionales)
-- [Validaciones de Datos](#-validaciones-de-datos)
-- [Rutas de la Aplicación](#-rutas-de-la-aplicación)
-- [Seguridad](#-seguridad)
-
----
-
 ## 🧰 Stack Tecnológico
 
 | Categoría          | Tecnología                                                               | Versión       |
@@ -219,8 +201,6 @@ Todos los Requisitos No Funcionales (RNF) y las Validaciones de Datos están imp
 
 ---
 
----
-
 ## 🗺️ Rutas de la Aplicación
 
 ### Públicas (sin autenticación)
@@ -278,3 +258,5 @@ Todos los Requisitos No Funcionales (RNF) y las Validaciones de Datos están imp
 | Requerimientos funcionales | [`docs/Archivo_de_Requerimientos.md`](docs/Archivo_de_Requerimientos.md) | Especificación completa de CU001-CU020 y RNFs                |
 | Diagrama ERD               | [`docs/ERD.svg`](docs/ERD.svg)                                           | Diagrama entidad-relación de la base de datos                |
 | Variables de entorno       | Sección en este README                                                   | Tabla con las variables necesarias                           |
+
+---
