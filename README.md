@@ -258,5 +258,3 @@ Todos los Requisitos No Funcionales (RNF) y las Validaciones de Datos están imp
 | Requerimientos funcionales | [`docs/Archivo_de_Requerimientos.md`](docs/Archivo_de_Requerimientos.md) | Especificación completa de CU001-CU020 y RNFs                |
 | Diagrama ERD               | [`docs/ERD.svg`](docs/ERD.svg)                                           | Diagrama entidad-relación de la base de datos                |
 | Variables de entorno       | Sección en este README                                                   | Tabla con las variables necesarias                           |
-
----
